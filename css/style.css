@@ -88,3 +88,7 @@ button {
 button:hover {
     background-color: #4A148C;
 }
+
+a:hover {
+    color: #4A148C;
+}
