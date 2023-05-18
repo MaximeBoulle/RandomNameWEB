@@ -1,10 +1,12 @@
 /* BODY */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #F3E5F5;
-    color: #333333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
 }
 
 /* HEADER */
@@ -35,13 +37,20 @@ header ul li a {
     padding: 5px;
 }
 
+header a:hover {
+    color: #4A148C;
+    text-decoration: underline;
+}
+
 /* CONTENT */
 main {
+    flex-grow: 1;
     padding: 20px;
 }
 
 section {
     margin-bottom: 20px;
+    text-align: center;
 }
 
 section h2 {
@@ -76,6 +85,12 @@ footer ul li a {
     padding: 5px;
 }
 
+footer a:hover {
+    color: #4A148C;
+    text-decoration: underline;
+
+}
+
 /* BUTTON */
 button {
     background-color: #FF4081;
@@ -89,6 +104,137 @@ button:hover {
     background-color: #4A148C;
 }
 
-a:hover {
-    color: #4A148C;
+/* TABLE */
+.table-container {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+caption {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #6f42c1;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+td.description {
+    font-style: italic;
+}
+
+/* FORM */
+
+
+form {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #6f42c1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #512da8;
+}
+
+#generated-name {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.form-container {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Roulette */
+
+#name-input {
+    margin-bottom: 10px;
+}
+
+.roulette-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4f3f80;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.roulette-button:hover {
+    background-color: #675ca1;
+}
+
+#roulette-container {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+#text-name, #random-name {
+    display: inline-block;
+    font-size: 30px;
+
 }
