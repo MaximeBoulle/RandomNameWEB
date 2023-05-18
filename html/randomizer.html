@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChoseMyName</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
 </head>
 <body>
+<!-- En-tête de page -->
+<header>
+    <h1>ChoseMyName</h1>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="popular.html">Choix populaire</a></li>
+        <li><a href="roulette.html">Roulette</a></li>
+        <li><a href="randomizer.html">Randomizer</a></li>
+    </ul>
+</header>
 
+<!-- Contenu principal -->
+<main>
+    <div class="form-container">
+
+        <h2>Randomizer</h2>
+
+        <form id="randomizer-form">
+            <label for="gender-select">Sexe de l'enfant:</label>
+            <select id="gender-select" name="gender">
+                <option value="female">Fille</option>
+                <option value="male">Garçon</option>
+            </select>
+
+            <button type="button" onclick="generateName()">Générer un prénom</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <div id="generated-name"></div>
+    </div>
+
+</main>
+
+<!-- Pied de page -->
+<footer>
+    <ul>
+        <li><a href="about.html">À propos</a></li>
+    </ul>
+</footer>
 </body>
 </html>
