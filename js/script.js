@@ -17,17 +17,49 @@ var names = [];
 function addName() {
     var name = document.getElementById("name-input").value;
     names.push(name);
-    var rouletteContainer = document.getElementById("roulette-container");
-    var line = document.createElement("td");
-    line.textContent = name;
-    rouletteContainer.appendChild(line);
+
+    const rouletteWheel = document.querySelector('.roulette-wheel');
+
+    var segmentCount = document.querySelectorAll(".roulette-segment").length;
+
+    const newSegment = document.createElement('div');
+    newSegment.classList.add('roulette-segment');
+
+
+    const TextSegment = document.createElement('div');
+    TextSegment.classList.add('wheel-text');
+    TextSegment.textContent = name;
+
+    newSegment.appendChild(TextSegment);
+
+    rouletteWheel.appendChild(newSegment);
+
+    const Allsegments = document.querySelectorAll('.roulette-segment');
+    Allsegments.forEach((segment, nb) => {
+        segment.style.transform = `rotate(${(360 / (segmentCount + 1)) * nb}deg)`;
+    });
 
 }
 
+
 function spinRoulette() {
-    var randomNameElement = document.getElementById("random-name");
-    var randomID = Math.floor(Math.random() * names.length);
-    var randomName = names[randomID];
-    randomNameElement.textContent = randomName;
+    var segments = document.querySelectorAll('.roulette-segment');
+    var randomIndex = Math.floor(Math.random() * segments.length);
+    var winningSegment = segments[randomIndex];
+
+    var randomName = winningSegment.querySelector('.wheel-text').textContent;
+    var name = document.getElementById('random-name');
+
+    name.textContent = randomName;
+
+    var rotationAngle = -randomIndex * (360 / segments.length);
+
+    // Appliquer la rotation à la roulette
+    var rouletteWheel = document.querySelector('.roulette-wheel');
+    rouletteWheel.style.transform = `rotate(${rotationAngle}deg)`;
+
+    // Ajouter une transition pour créer l'effet de rotation
+    rouletteWheel.style.transition = 'transform 3s ease-in-out';
+
 }
 
