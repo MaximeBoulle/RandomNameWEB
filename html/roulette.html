@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChoseMyName</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/script.js"></script>
 </head>
 <body>
+<!-- En-tête de page -->
+<header>
+    <h1>ChoseMyName</h1>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="popular.html">Choix populaire</a></li>
+        <li><a href="roulette.html">Roulette</a></li>
+        <li><a href="randomizer.html">Randomizer</a></li>
+    </ul>
+</header>
 
+<!-- Contenu principal -->
+<main>
+    <div id="roulette-container">
+        <h2>Roulette</h2>
+        <input type="text" id="name-input" placeholder="Saisir un nom">
+        <div id="button-container">
+            <button onclick="addName()">Ajouter</button>
+            <button onclick="spinRoulette()">Tourner la roulette</button>
+        </div>
+        <div id="text-container">
+            <p id="text-name">Voici le nom de votre enfant :</p>
+            <p id="random-name"></p>
+        </div>
+    </div>
+</main>
+
+<!-- Pied de page -->
+<footer>
+    <ul>
+        <li><a href="about.html">À propos</a></li>
+    </ul>
+</footer>
 </body>
 </html>
