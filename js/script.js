@@ -62,4 +62,33 @@ function spinRoulette() {
     rouletteWheel.style.transition = 'transform 3s ease-in-out';
 
 }
-
+var state = false;
+function DarkMode() {
+    if(state === false){
+        var body = document.body;
+        var header = document.querySelector("header");
+        var footer = document.querySelector("footer");
+        var h2 = document.querySelectorAll("h2");
+        body.style.backgroundColor = "#35363A";
+        body.style.color = "white";
+        header.style.backgroundColor = "rebeccapurple";
+        footer.style.backgroundColor = "rebeccapurple";
+        h2.forEach((h2) => {
+            h2.style.color = "rebeccapurple";
+        });
+        state = true;
+    }else{
+        var body = document.body;
+        var header = document.querySelector("header");
+        var footer = document.querySelector("footer");
+        var h2 = document.querySelectorAll("h2");
+        body.style.backgroundColor = "white";
+        body.style.color = "black";
+        header.style.backgroundColor = "#FF4081";
+        footer.style.backgroundColor = "#FF4081";
+        h2.forEach((h2) => {
+            h2.style.color = "#FF4081";
+        });
+        state = false;
+    }
+}
