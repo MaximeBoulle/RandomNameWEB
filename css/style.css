@@ -9,10 +9,12 @@ body {
     font-family: Arial, sans-serif;
 }
 
+
 /* HEADER */
 header {
     background-color: #FF4081;
     padding: 10px;
+    display: flex;
 }
 
 header h1 {
@@ -49,6 +51,15 @@ header #DarkMode {
     background-color: transparent;
 }
 
+.header-container{
+    display:inline-block;
+}
+
+.img-header{
+    width: 10%;
+    margin-left: 55%;
+}
+
 /* CONTENT */
 .section-container{
     background-color: rgba(0, 0, 0, 0.05);
@@ -71,7 +82,6 @@ section {
 }
 
 section h2 {
-    color: #FF4081;
 }
 
 section p {

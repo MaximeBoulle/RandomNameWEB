@@ -66,23 +66,27 @@ var state = false;
 function DarkMode() {
     if(state === false){
         var body = document.body;
+        var section = document.getElementById("section-container");
         var header = document.querySelector("header");
         var footer = document.querySelector("footer");
         var h2 = document.querySelectorAll("h2");
-        body.style.backgroundColor = "#35363A";
+        body.style.backgroundColor = "#242526";
         body.style.color = "white";
-        header.style.backgroundColor = "rebeccapurple";
-        footer.style.backgroundColor = "rebeccapurple";
+        section.style.backgroundColor = "#3a3b3c";
+        header.style.backgroundColor = "#6441a5";
+        footer.style.backgroundColor = "#6441a5";
         h2.forEach((h2) => {
-            h2.style.color = "rebeccapurple";
+            h2.style.color = "#D8BFD8";
         });
         state = true;
     }else{
         var body = document.body;
+        var section = document.getElementById("section-container");
         var header = document.querySelector("header");
         var footer = document.querySelector("footer");
         var h2 = document.querySelectorAll("h2");
         body.style.backgroundColor = "white";
+        section.style.backgroundColor = "#f9f9f9";
         body.style.color = "black";
         header.style.backgroundColor = "#FF4081";
         footer.style.backgroundColor = "#FF4081";
