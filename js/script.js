@@ -64,29 +64,29 @@ function spinRoulette() {
 }
 var state = false;
 function DarkMode() {
-    if(state === false){
-        var body = document.body;
-        var section = document.getElementById("section-container");
-        var header = document.querySelector("header");
-        var footer = document.querySelector("footer");
-        var h2 = document.querySelectorAll("h2");
+    var body = document.body;
+    var containers = document.querySelectorAll('.container-gray');
+    var header = document.querySelector("header");
+    var footer = document.querySelector("footer");
+    var h2 = document.querySelectorAll("h2");
+
+    if (state === false) {
         body.style.backgroundColor = "#242526";
         body.style.color = "white";
-        section.style.backgroundColor = "#3a3b3c";
+        containers.forEach((container) => {
+            container.style.backgroundColor = "#3a3b3c";
+        });
         header.style.backgroundColor = "#6441a5";
         footer.style.backgroundColor = "#6441a5";
         h2.forEach((h2) => {
             h2.style.color = "#D8BFD8";
         });
         state = true;
-    }else{
-        var body = document.body;
-        var section = document.getElementById("section-container");
-        var header = document.querySelector("header");
-        var footer = document.querySelector("footer");
-        var h2 = document.querySelectorAll("h2");
+    } else {
         body.style.backgroundColor = "white";
-        section.style.backgroundColor = "#f9f9f9";
+        containers.forEach((container) => {
+            container.style.backgroundColor = "#f9f9f9";
+        });
         body.style.color = "black";
         header.style.backgroundColor = "#FF4081";
         footer.style.backgroundColor = "#FF4081";
