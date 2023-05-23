@@ -305,3 +305,12 @@ select {
     width: 80%;
     height: 80%;
 }
+
+/* BUBLE */
+
+.container-gray {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
