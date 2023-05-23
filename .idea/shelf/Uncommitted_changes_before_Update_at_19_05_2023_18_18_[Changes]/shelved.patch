@@ -1,0 +1,66 @@
+Index: js/script.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Dictionary_name_girl = [\"Emma\",\"Jade\",\"Louise\",\"Alice\",\"Chloé\",\"Lina\",\"Léa\",\"Rose\",\"Anna\",\"Mila\",\"Mia\",\"Léna\",\"Camille\",\"Julia\",\"Ambre\",\"Juliette\",\"Lola\",\"Léna\",\"Inès\",\"Zoé\"];\nDictionary_name_boy = [\"Gabriel\",\"Raphaël\",\"Léo\",\"Louis\",\"Lucas\",\"Adam\",\"Arthur\",\"Jules\",\"Hugo\",\"Maël\",\"Liam\",\"Ethan\",\"Paul\",\"Nathan\",\"Gabin\",\"Noah\",\"Aaron\",\"Tom\"];\nfunction generateName() {\n    var genderSelect = document.getElementById(\"gender-select\");\n    var generatedNameDiv = document.getElementById(\"generated-name\");\n    if(genderSelect.value === \"Fille\"){\n        var randomID_girl = Math.floor(Math.random() * Dictionary_name_girl.length);\n        generatedNameDiv.textContent = \"Prénom généré: \"+ Dictionary_name_girl[randomID_girl];\n    }else{\n        var randomID_boy = Math.floor(Math.random() * Dictionary_name_boy.length);\n        generatedNameDiv.textContent = \"Prénom généré: \"+Dictionary_name_boy[randomID_boy];\n    }\n}\n\n\nvar names = [];\nfunction addName() {\n    var name = document.getElementById(\"name-input\").value;\n    names.push(name);\n\n    const rouletteWheel = document.querySelector('.roulette-wheel');\n\n    var segmentCount = document.querySelectorAll(\".roulette-segment\").length;\n\n    const newSegment = document.createElement('div');\n    newSegment.classList.add('roulette-segment');\n\n\n    const TextSegment = document.createElement('div');\n    TextSegment.classList.add('wheel-text');\n    TextSegment.textContent = name;\n\n    newSegment.appendChild(TextSegment);\n\n    rouletteWheel.appendChild(newSegment);\n\n    const Allsegments = document.querySelectorAll('.roulette-segment');\n    Allsegments.forEach((segment, nb) => {\n        segment.style.transform = `rotate(${(360 / (segmentCount + 1)) * nb}deg)`;\n    });\n\n}\n\n\nfunction spinRoulette() {\n    var segments = document.querySelectorAll('.roulette-segment');\n    var randomIndex = Math.floor(Math.random() * segments.length);\n    var winningSegment = segments[randomIndex];\n\n    var randomName = winningSegment.querySelector('.wheel-text').textContent;\n    var name = document.getElementById('random-name');\n\n    name.textContent = randomName;\n\n    var rotationAngle = -randomIndex * (360 / segments.length);\n\n    // Appliquer la rotation à la roulette\n    var rouletteWheel = document.querySelector('.roulette-wheel');\n    rouletteWheel.style.transform = `rotate(${rotationAngle}deg)`;\n\n    // Ajouter une transition pour créer l'effet de rotation\n    rouletteWheel.style.transition = 'transform 3s ease-in-out';\n\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/js/script.js b/js/script.js
+--- a/js/script.js	(revision 2ccdd26503aa7c7dfcc6dc507ef671dee0d19355)
++++ b/js/script.js	(date 1684508455030)
+@@ -63,3 +63,10 @@
+ 
+ }
+ 
++
++function dark_mode() {
++    var body= document.body;
++    body.style.backgroundColor = black;
++}
++
++
+Index: css/style.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* BODY */\nbody {\n    display: flex;\n    flex-direction: column;\n    min-height: 100vh;\n    margin: 0;\n    padding: 0;\n    background-color: #f9f9f9;\n    font-family: Arial, sans-serif;\n}\n\n/* HEADER */\nheader {\n    background-color: #FF4081;\n    padding: 10px;\n}\n\nheader h1 {\n    color: #FFFFFF;\n    text-shadow: 2px 2px #4A148C;\n}\n\nheader ul {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n\nheader ul li {\n    display: inline-block;\n    margin-right: 10px;\n}\n\nheader ul li a {\n    text-decoration: none;\n    color: #FFFFFF;\n    padding: 5px;\n}\n\nheader a:hover {\n    color: #4A148C;\n    text-decoration: underline;\n}\n\n/* CONTENT */\n.section-container{\n    background-color: rgba(0, 0, 0, 0.05);\n    border-radius: 20px;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    overflow: hidden;\n    margin-bottom: 20px;\n    text-align: center;\n}\n\nmain {\n    flex-grow: 1;\n    padding: 20px;\n}\n\nsection {\n    margin-bottom: 20px;\n    text-align: center;\n}\n\nsection h2 {\n    color: #FF4081;\n}\n\nsection p {\n    line-height: 1.5;\n}\n\n/* FOOTER */\nfooter {\n    background-color: #FF4081;\n    padding: 10px;\n    text-align: center;\n}\n\nfooter ul {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n\nfooter ul li {\n    display: inline-block;\n    margin-right: 10px;\n}\n\nfooter ul li a {\n    text-decoration: none;\n    color: #FFFFFF;\n    padding: 5px;\n}\n\nfooter a:hover {\n    color: #4A148C;\n    text-decoration: underline;\n\n}\n\n/* BUTTON */\nbutton {\n    background-color: #FF4081;\n    color: #FFFFFF;\n    border: none;\n    padding: 10px 20px;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: #4A148C;\n}\n\n/* TABLE */\n.table-container {\n    background-color: rgba(0, 0, 0, 0.05);\n    border-radius: 20px;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    overflow: hidden;\n    margin-bottom: 20px;\n}\n\ntable {\n    width: 100%;\n    border-collapse: collapse;\n\n}\n\ncaption {\n    font-weight: bold;\n    font-size: 20px;\n    margin-bottom: 10px;\n}\n\nth, td {\n    padding: 10px;\n    text-align: left;\n}\n\nth {\n    background-color: #6f42c1;\n    color: #fff;\n}\n\ntr:nth-child(even) {\n    background-color: #f2f2f2;\n}\n\ntd.description {\n    font-style: italic;\n}\n\n/* FORM */\n\n\nform {\n    margin-bottom: 20px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n\nlabel {\n    display: block;\n    margin-bottom: 10px;\n    font-weight: bold;\n}\n\nselect {\n    padding: 5px;\n    border-radius: 5px;\n    border: 1px solid #ccc;\n    width: 100%;\n    max-width: 200px;\n    margin-bottom: 10px;\n}\n\nbutton {\n    padding: 10px 20px;\n    background-color: #6f42c1;\n    color: #fff;\n    border: none;\n    border-radius: 5px;\n    cursor: pointer;\n}\n\nbutton:hover {\n    background-color: #512da8;\n}\n\n#generated-name {\n    margin-top: 20px;\n    font-weight: bold;\n    font-size: 1.2em;\n    text-align: center;\n}\n\n.form-container {\n    background-color: rgba(0, 0, 0, 0.05);\n    border-radius: 20px;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    overflow: hidden;\n    margin-bottom: 20px;\n    text-align: center;\n}\n\n/* Roulette */\n\n#name-input {\n    margin-bottom: 10px;\n}\n\n.roulette-button {\n    display: inline-block;\n    padding: 10px 20px;\n    background-color: #4f3f80;\n    color: #fff;\n    border: none;\n    border-radius: 5px;\n    font-size: 16px;\n    cursor: pointer;\n}\n\n.roulette-button:hover {\n    background-color: #675ca1;\n}\n\n#roulette-container {\n    background-color: rgba(0, 0, 0, 0.05);\n    border-radius: 20px;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n    margin-bottom: 20px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n\n.button-container {\n    display: flex;\n    align-items: center;\n}\n\n#text-name, #random-name {\n    display: inline-block;\n    font-size: 30px;\n}\n\n.roulette {\n    position: relative;\n    margin: auto;\n    text-align: center;\n}\n\n.roulette::before {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    left: 50%;\n    transform: translate(-50%, -50%) rotate(45deg);\n    width: 24px;\n    height: 24px;\n    background-color: #4f3f80;\n    border-radius: 50% 50% 0 50%;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);\n    z-index: 20;\n}\n\n.roulette-wheel{\n    width: 300px;\n    height: 300px;\n    position: relative;\n    overflow: hidden;\n    border-radius: 50%;\n    transition: all 1000ms;\n    background-color: #FF4081;\n}\n\n.roulette-segment {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    transform-origin: center center;\n}\n\n.wheel-text {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%) rotate(0deg);\n    font-size: 1.25rem;\n    font-weight: bold;\n    color: white;\n    text-align: center;\n    width: 80%;\n    height: 80%;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/css/style.css b/css/style.css
+--- a/css/style.css	(revision 2ccdd26503aa7c7dfcc6dc507ef671dee0d19355)
++++ b/css/style.css	(date 1684507804999)
+@@ -39,7 +39,7 @@
+ 
+ header a:hover {
+     color: #4A148C;
+-    text-decoration: underline;
++    transition: all 0.2s ease 0s;
+ }
+ 
+ /* CONTENT */
+@@ -111,6 +111,7 @@
+ 
+ button:hover {
+     background-color: #4A148C;
++    transition: all 0.2s ease 0s;
+ }
+ 
+ /* TABLE */
+@@ -188,6 +189,7 @@
+ 
+ button:hover {
+     background-color: #512da8;
++    transition: all 0.2s ease 0s;
+ }
+ 
+ #generated-name {
+@@ -225,6 +227,9 @@
+ 
+ .roulette-button:hover {
+     background-color: #675ca1;
++    transition: all 0.2s ease 0s;
++    transition: all 0.2s ease 0s;
++
+ }
+ 
+ #roulette-container {

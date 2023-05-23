@@ -1,0 +1,99 @@
+Index: js/script.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Dictionary_name_girl = [\"Emma\",\"Jade\",\"Louise\",\"Alice\",\"Chloé\",\"Lina\",\"Léa\",\"Rose\",\"Anna\",\"Mila\",\"Mia\",\"Léna\",\"Camille\",\"Julia\",\"Ambre\",\"Juliette\",\"Lola\",\"Léna\",\"Inès\",\"Zoé\"];\nDictionary_name_boy = [\"Gabriel\",\"Raphaël\",\"Léo\",\"Louis\",\"Lucas\",\"Adam\",\"Arthur\",\"Jules\",\"Hugo\",\"Maël\",\"Liam\",\"Ethan\",\"Paul\",\"Nathan\",\"Gabin\",\"Noah\",\"Aaron\",\"Tom\"];\nfunction generateName() {\n    var genderSelect = document.getElementById(\"gender-select\");\n    var generatedNameDiv = document.getElementById(\"generated-name\");\n    if(genderSelect.value === \"Fille\"){\n        var randomID_girl = Math.floor(Math.random() * Dictionary_name_girl.length);\n        generatedNameDiv.textContent = \"Prénom généré: \"+ Dictionary_name_girl[randomID_girl];\n    }else{\n        var randomID_boy = Math.floor(Math.random() * Dictionary_name_boy.length);\n        generatedNameDiv.textContent = \"Prénom généré: \"+Dictionary_name_boy[randomID_boy];\n    }\n}\n\n\nvar names = [];\nfunction addName() {\n    var name = document.getElementById(\"name-input\").value;\n    names.push(name);\n    var rouletteContainer = document.getElementById(\"roulette-container\");\n    var line = document.createElement(\"td\");\n    line.textContent = name;\n    rouletteContainer.appendChild(line);\n\n}\n\nfunction spinRoulette() {\n    var randomNameElement = document.getElementById(\"random-name\");\n    var randomID = Math.floor(Math.random() * names.length);\n    var randomName = names[randomID];\n    randomNameElement.textContent = randomName;\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/js/script.js b/js/script.js
+--- a/js/script.js	(revision 5568044f06190303cb13359dbe2e127a240e225e)
++++ b/js/script.js	(date 1684513300382)
+@@ -17,17 +17,78 @@
+ function addName() {
+     var name = document.getElementById("name-input").value;
+     names.push(name);
+-    var rouletteContainer = document.getElementById("roulette-container");
+-    var line = document.createElement("td");
+-    line.textContent = name;
+-    rouletteContainer.appendChild(line);
++
++    const rouletteWheel = document.querySelector('.roulette-wheel');
++
++    var segmentCount = document.querySelectorAll(".roulette-segment").length;
++
++    const newSegment = document.createElement('div');
++    newSegment.classList.add('roulette-segment');
++
++
++    const TextSegment = document.createElement('div');
++    TextSegment.classList.add('wheel-text');
++    TextSegment.textContent = name;
++
++    newSegment.appendChild(TextSegment);
++
++    rouletteWheel.appendChild(newSegment);
++
++    const Allsegments = document.querySelectorAll('.roulette-segment');
++    Allsegments.forEach((segment, nb) => {
++        segment.style.transform = `rotate(${(360 / (segmentCount + 1)) * nb}deg)`;
++    });
+ 
+ }
++
+ 
+ function spinRoulette() {
+-    var randomNameElement = document.getElementById("random-name");
+-    var randomID = Math.floor(Math.random() * names.length);
+-    var randomName = names[randomID];
+-    randomNameElement.textContent = randomName;
+-}
++    var segments = document.querySelectorAll('.roulette-segment');
++    var randomIndex = Math.floor(Math.random() * segments.length);
++    var winningSegment = segments[randomIndex];
++
++    var randomName = winningSegment.querySelector('.wheel-text').textContent;
++    var name = document.getElementById('random-name');
++
++    name.textContent = randomName;
++
++    var rotationAngle = -randomIndex * (360 / segments.length);
++
++    // Appliquer la rotation à la roulette
++    var rouletteWheel = document.querySelector('.roulette-wheel');
++    rouletteWheel.style.transform = `rotate(${rotationAngle}deg)`;
++
++    // Ajouter une transition pour créer l'effet de rotation
++    rouletteWheel.style.transition = 'transform 3s ease-in-out';
+ 
++}
++var state = false;
++function DarkMode() {
++    if(state === false){
++        var body = document.body;
++        var header = document.querySelector("header");
++        var footer = document.querySelector("footer");
++        var h2 = document.querySelectorAll("h2");
++        body.style.backgroundColor = "#35363A";
++        body.style.color = "white";
++        header.style.backgroundColor = "rebeccapurple";
++        footer.style.backgroundColor = "rebeccapurple";
++        h2.forEach((h2) => {
++            h2.style.color = "rebeccapurple";
++        });
++        state = true;
++    }else{
++        var body = document.body;
++        var header = document.querySelector("header");
++        var footer = document.querySelector("footer");
++        var h2 = document.querySelectorAll("h2");
++        body.style.backgroundColor = "white";
++        body.style.color = "black";
++        header.style.backgroundColor = "#FF4081";
++        footer.style.backgroundColor = "#FF4081";
++        h2.forEach((h2) => {
++            h2.style.color = "#FF4081";
++        });
++        state = false;
++    }
++}
+\ No newline at end of file
