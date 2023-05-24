@@ -65,39 +65,16 @@ function spinRoulette() {
 var state = false;
 function DarkMode() {
     var body = document.body;
-    var containers = document.querySelectorAll('.container-gray');
-    var header = document.querySelector("header");
-    var footer = document.querySelector("footer");
-    var h2 = document.querySelectorAll("h2");
 
     if (state === false) {
-        body.style.backgroundColor = "#242526";
-        body.style.color = "white";
-        containers.forEach((container) => {
-            container.style.backgroundColor = "#3a3b3c";
-        });
-        header.style.backgroundColor = "#6441a5";
-        footer.style.backgroundColor = "#6441a5";
-        h2.forEach((h2) => {
-            h2.style.color = "#D8BFD8";
-        });
+        body.classList.add('dark-mode');
         state = true;
         localStorage.setItem('darkMode', 'true');
 
     } else {
-        body.style.backgroundColor = "white";
-        containers.forEach((container) => {
-            container.style.backgroundColor = "#f9f9f9";
-        });
-        body.style.color = "black";
-        header.style.backgroundColor = "#FF4081";
-        footer.style.backgroundColor = "#FF4081";
-        h2.forEach((h2) => {
-            h2.style.color = "#FF4081";
-        });
+        body.classList.remove('dark-mode');
         state = false;
         localStorage.setItem('darkMode', 'false');
-
     }
 }
 
