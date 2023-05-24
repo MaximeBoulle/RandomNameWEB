@@ -82,6 +82,8 @@ function DarkMode() {
             h2.style.color = "#D8BFD8";
         });
         state = true;
+        localStorage.setItem('darkMode', 'true');
+
     } else {
         body.style.backgroundColor = "white";
         containers.forEach((container) => {
@@ -94,5 +96,34 @@ function DarkMode() {
             h2.style.color = "#FF4081";
         });
         state = false;
+        localStorage.setItem('darkMode', 'false');
+
     }
 }
+
+function loadDarkMode() {
+    var darkMode = localStorage.getItem('darkMode');
+
+    if (darkMode === 'true') {
+        // Appliquer le mode sombre
+        var body = document.body;
+        var containers = document.querySelectorAll('.container-gray');
+        var header = document.querySelector("header");
+        var footer = document.querySelector("footer");
+        var h2 = document.querySelectorAll("h2");
+
+        body.style.backgroundColor = "#242526";
+        body.style.color = "white";
+        containers.forEach((container) => {
+            container.style.backgroundColor = "#3a3b3c";
+        });
+        header.style.backgroundColor = "#6441a5";
+        footer.style.backgroundColor = "#6441a5";
+        h2.forEach((h2) => {
+            h2.style.color = "#D8BFD8";
+        });
+        state = true;
+    }
+}
+
+window.addEventListener('DOMContentLoaded', loadDarkMode);
