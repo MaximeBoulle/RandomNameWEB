@@ -314,3 +314,26 @@ select {
     border-radius: 20px;
     margin-bottom: 20px;
 }
+
+/* DARKMODE */
+
+body.dark-mode {
+    background-color: #242526;
+    color: white;
+}
+
+body.dark-mode .container-gray {
+    background-color: #3a3b3c;
+}
+
+body.dark-mode header {
+    background-color: #6441a5;
+}
+
+body.dark-mode footer {
+    background-color: #6441a5;
+}
+
+body.dark-mode h2 {
+    color: #D8BFD8;
+}

@@ -103,26 +103,13 @@ function DarkMode() {
 
 function loadDarkMode() {
     var darkMode = localStorage.getItem('darkMode');
-
+    var body = document.body;
     if (darkMode === 'true') {
-        // Appliquer le mode sombre
-        var body = document.body;
-        var containers = document.querySelectorAll('.container-gray');
-        var header = document.querySelector("header");
-        var footer = document.querySelector("footer");
-        var h2 = document.querySelectorAll("h2");
-
-        body.style.backgroundColor = "#242526";
-        body.style.color = "white";
-        containers.forEach((container) => {
-            container.style.backgroundColor = "#3a3b3c";
-        });
-        header.style.backgroundColor = "#6441a5";
-        footer.style.backgroundColor = "#6441a5";
-        h2.forEach((h2) => {
-            h2.style.color = "#D8BFD8";
-        });
+        body.classList.add('dark-mode');
         state = true;
+    } else {
+        body.classList.remove('dark-mode');
+        state = false;
     }
 }
 
