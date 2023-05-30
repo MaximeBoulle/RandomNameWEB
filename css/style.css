@@ -348,13 +348,3 @@ body.dark-mode h2 {
 body.dark-mode tr:nth-child(even){
     background-color: #696969;
 }
-
-
-
-
-
-
-
-#random-name {
-    animation: blink 2s infinite; /* Appliquer l'animation de clignotement */
-}
