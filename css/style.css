@@ -168,6 +168,12 @@ td.description {
     font-style: italic;
 }
 
+tr:nth-child(even){
+    background-color: #DCDCDC;
+}
+
+
+
 /* FORM */
 
 
@@ -311,6 +317,11 @@ select {
     margin-bottom: 20px;
 }
 
+.active{
+    color : #00B0F0;
+    background-color: white;
+    border-radius: 5px;
+}
 /* DARKMODE */
 
 body.dark-mode {
@@ -332,4 +343,18 @@ body.dark-mode footer {
 
 body.dark-mode h2 {
     color: #D8BFD8;
+}
+
+body.dark-mode tr:nth-child(even){
+    background-color: #696969;
+}
+
+
+
+
+
+
+
+#random-name {
+    animation: blink 2s infinite; /* Appliquer l'animation de clignotement */
 }
